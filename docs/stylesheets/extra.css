@@ -1,14 +1,33 @@
 .md-typeset h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
 .md-typeset h2 {
-    color: #7c4dff;
+    color: #8b5cf6;
+    border-bottom: 2px solid rgba(139, 92, 246, .3);
+    padding-bottom: 8px;
+}
+
+.md-content__inner {
+    max-width: 1200px;
+}
+
+.md-typeset table {
+    width: 100%;
+}
+
+.md-typeset blockquote {
+    border-left: 4px solid #8b5cf6;
+    background: rgba(139, 92, 246, .08);
+    padding: 12px;
+    border-radius: 8px;
 }
 
 .md-button {
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .md-grid {
