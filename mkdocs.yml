@@ -1,45 +1,14 @@
-site_name: DevOps Interview Guide
-site_description: Master DevOps Interviews
-site_author: Mahesh Tiwari
-
 theme:
   name: material
-
   palette:
-    - scheme: slate
-      primary: black
-      accent: light blue
+    scheme: slate
+    primary: deep purple
+    accent: cyan
 
   features:
+    - navigation.tabs
     - navigation.sections
-    - navigation.expand
-    - navigation.indexes
     - navigation.top
     - search.highlight
-    - search.suggest
     - content.code.copy
-
-extra_css:
-  - stylesheets/extra.css
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - md_in_html
-  - pymdownx.details
-  - pymdownx.superfences
-
-nav:
-  - Home: index.md
-
-  - Terraform:
-      - Interview Questions: terraform.md
-
-  - Azure:
-      - Interview Questions: azure.md
-
-  - Pipelines:
-      - Interview Questions: pipelines.md
-
-  - Docker & Kubernetes:
-      - Interview Questions: docker-k8s.md
+    - content.tabs.link

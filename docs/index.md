@@ -1,49 +1,18 @@
-<div class="hero">
+# 🚀 DevOps Interview Guide
 
-<div class="hero-badge">
-🚀 Complete DevOps Interview Preparation Guide
-</div>
+<div class="hero-card">
 
-# Master DevOps Interviews
+## Master Azure DevOps Interviews
 
-Prepare for real-world DevOps interviews with scenario-based questions and detailed answers.
+Terraform • Azure • Kubernetes • Docker • CI/CD
 
-<div class="hero-buttons">
-
-<a href="terraform/" class="btn-primary">Start Learning</a>
-
-<a href="https://github.com" class="btn-secondary">GitHub</a>
+[Start Learning](terraform.md){ .md-button .md-button--primary }
 
 </div>
 
-</div>
+## 📚 Topics
 
-## Topics
-
-<div class="cards">
-
-<div class="card">
-<h2>Terraform</h2>
-<p>15 Scenario Based Questions</p>
-<a href="terraform/">Open →</a>
-</div>
-
-<div class="card">
-<h2>Azure</h2>
-<p>10 Scenario Based Questions</p>
-<a href="azure/">Open →</a>
-</div>
-
-<div class="card">
-<h2>Pipelines</h2>
-<p>15 Scenario Based Questions</p>
-<a href="pipelines/">Open →</a>
-</div>
-
-<div class="card">
-<h2>Docker & Kubernetes</h2>
-<p>25 Scenario Based Questions</p>
-<a href="docker-k8s/">Open →</a>
-</div>
-
-</div>
+- Terraform
+- Azure
+- Azure DevOps
+- Docker & Kubernetes
