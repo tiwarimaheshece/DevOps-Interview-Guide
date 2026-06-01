@@ -1,18 +1,14 @@
-# 🚀 DevOps Interview Guide
+# 🚀 DevOps Engineer Interview Hub
 
-<div class="hero-card">
+### Azure • Terraform • Azure DevOps • Docker • Kubernetes • Linux
 
-## Master Azure DevOps Interviews
+Enterprise-level interview preparation with real-world scenarios, production troubleshooting, cloud architecture discussions, and hands-on DevOps practices.
 
-Terraform • Azure • Kubernetes • Docker • CI/CD
+---
 
-[Start Learning](terraform.md){ .md-button .md-button--primary }
-
-</div>
-
-## 📚 Topics
-
-- Terraform
-- Azure
-- Azure DevOps
-- Docker & Kubernetes
+🎯 50+ Senerio based Interview Questions  
+☁️ Azure & Cloud Architecture  
+🏗️ Terraform & Infrastructure as Code  
+🚀 CI/CD & Azure DevOps  
+🐳 Docker & Kubernetes  
+💼 Production Scenarios & Troubleshooting
