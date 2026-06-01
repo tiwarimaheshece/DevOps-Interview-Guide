@@ -1,3 +1,6 @@
+site_name: DevOps Interview Guide
+site_url: https://tiwarimaheshece.github.io/DevOps-Interview-Guide/
+
 theme:
   name: material
   palette:
@@ -11,4 +14,34 @@ theme:
     - navigation.top
     - search.highlight
     - content.code.copy
-    - content.tabs.link
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Terraform:
+      - Interview Questions: terraform.md
+  - Azure:
+      - Interview Questions: azure.md
+  - Pipelines:
+      - Interview Questions: pipelines.md
+  - Docker & Kubernetes:
+      - Interview Questions: docker-k8s.md
+site_name: DevOps Interview Guide
+site_description: Complete DevOps Interview Preparation
+site_author: Mahesh Tiwari
+
+theme:
+  name: material
+
+  logo: assets/logo.png
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - navigation.instant
