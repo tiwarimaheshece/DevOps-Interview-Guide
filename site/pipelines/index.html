@@ -656,11 +656,11 @@
 
   <h1>Interview Questions</h1>
 
-<p>Q1. Explain the CI/CD pipeline you implemented in your project.
-Answer</p>
-<p>In my project, developers push code to GitHub. The pipeline is automatically triggered and starts with code checkout.</p>
-<p>The first stage performs validation such as Terraform Validate, Terraform Plan, and code quality checks. The second stage runs security scans using TFSec, Checkov, and TFLint. After approval, infrastructure is deployed using Terraform and the application is deployed to AKS.</p>
-<p>Finally, post-deployment validation and monitoring checks are performed.</p>
+<p>Q1. Explain the CI/CD pipeline you implemented in your project.</p>
+<p>Answer:
+In my project, developers push code to GitHub. The pipeline is automatically triggered and starts with code checkout.
+The first stage performs validation such as Terraform Validate, Terraform Plan, and code quality checks. The second stage runs security scans using TFSec, Checkov, and TFLint. After approval, infrastructure is deployed using Terraform and the application is deployed to AKS.
+Finally, post-deployment validation and monitoring checks are performed.</p>
 <p>Tools Used
 Azure DevOps Pipelines
 GitHub Actions
@@ -668,49 +668,49 @@ Terraform
 TFSec
 Checkov
 TFLint
-AKS
-Q2. How do you manage secrets in CI/CD pipelines?
-Answer</p>
-<p>I never store secrets directly in repositories or pipeline YAML files.</p>
-<p>For Azure DevOps, I integrate Azure Key Vault with Variable Groups. For GitHub Actions, I use GitHub Secrets. Applications and pipelines retrieve secrets dynamically during execution.</p>
-<p>This approach improves security and prevents credential exposure.</p>
-<p>Tools Used
+AKS</p>
+<p>Q2. How do you manage secrets in CI/CD pipelines?</p>
+<p>Answer:
+I never store secrets directly in repositories or pipeline YAML files.
+For Azure DevOps, I integrate Azure Key Vault with Variable Groups. For GitHub Actions, I use GitHub Secrets. Applications and pipelines retrieve secrets dynamically during execution.
+This approach improves security and prevents credential exposure.
+Tools Used
 Azure Key Vault
 Azure DevOps Variable Groups
 GitHub Secrets
-Managed Identity
-Q3. Production deployment requires approval before release. How would you implement it?
-Answer</p>
-<p>I would configure Environment Approvals in Azure DevOps or Environment Protection Rules in GitHub Actions.</p>
+Managed Identity</p>
+<p>Q3. Production deployment requires approval before release. How would you implement it?</p>
+<p>Answer:
+I would configure Environment Approvals in Azure DevOps or Environment Protection Rules in GitHub Actions.</p>
 <p>Before the deployment stage starts, an authorized person such as a Release Manager must approve the deployment request.</p>
 <p>This prevents unauthorized production releases.</p>
 <p>Tools Used
 Azure DevOps Environments
 GitHub Environments
-Approval Gates
-Q4. A deployment failed in production. What would you do?
-Answer</p>
-<p>First, I would analyze pipeline logs to identify the root cause.</p>
-<p>If the deployment impacted users, I would immediately perform a rollback to the last stable version. After fixing the issue, I would redeploy through the pipeline and verify application health.</p>
-<p>Tools Used
+Approval Gates</p>
+<p>Q4. A deployment failed in production. What would you do?</p>
+<p>Answer:
+First, I would analyze pipeline logs to identify the root cause.</p>
+<p>If the deployment impacted users, I would immediately perform a rollback to the last stable version. After fixing the issue, I would redeploy through the pipeline and verify application health.
+Tools Used
 Azure DevOps
 GitHub Actions
 Kubernetes Rollback
 Application Insights
-Azure Monitor
-Q5. How do you implement security scanning in your CI/CD pipeline?
-Answer</p>
-<p>I integrate security scanning during the pipeline execution before deployment.</p>
+Azure Monitor</p>
+<p>Q5. How do you implement security scanning in your CI/CD pipeline?</p>
+<p>Answer:
+I integrate security scanning during the pipeline execution before deployment.</p>
 <p>Infrastructure code is scanned using TFSec, Checkov, and TFLint. Container images are scanned using Trivy. If critical vulnerabilities are detected, the pipeline fails automatically.</p>
 <p>Tools Used
 TFSec
 Checkov
 TFLint
 Trivy
-SonarQube
-Q6. How would you deploy an application to AKS through a pipeline?
-Answer</p>
-<p>The pipeline first builds the Docker image and pushes it to Azure Container Registry (ACR).</p>
+SonarQube</p>
+<p>Q6. How would you deploy an application to AKS through a pipeline?</p>
+<p>Answer:
+The pipeline first builds the Docker image and pushes it to Azure Container Registry (ACR).</p>
 <p>After that, AKS deployment manifests or Helm charts are applied to the cluster. Finally, health checks are performed to verify the deployment.</p>
 <p>Tools Used
 Azure DevOps
@@ -719,84 +719,84 @@ Docker
 AKS
 ACR
 Helm
-kubectl
-Q7. What is the difference between Microsoft-hosted and Self-hosted Agents?
-Answer</p>
-<p>Microsoft-hosted agents are managed by Microsoft and are automatically provisioned for pipeline execution.</p>
-<p>Self-hosted agents run on company-managed servers and provide greater control, custom tooling, and access to internal resources.</p>
-<p>For enterprise environments, self-hosted agents are commonly used.</p>
-<p>Tools Used
+kubectl</p>
+<p>Q7. What is the difference between Microsoft-hosted and Self-hosted Agents?</p>
+<p>Answer:
+Microsoft-hosted agents are managed by Microsoft and are automatically provisioned for pipeline execution.
+Self-hosted agents run on company-managed servers and provide greater control, custom tooling, and access to internal resources.
+For enterprise environments, self-hosted agents are commonly used.
+Tools Used
 Azure DevOps Agents
-GitHub Self-Hosted Runners
-Q8. Your pipeline takes 40 minutes to complete. How would you optimize it?
-Answer</p>
-<p>I would identify bottlenecks by reviewing pipeline execution logs.</p>
-<p>Optimization techniques include parallel job execution, dependency caching, reusable templates, incremental builds, and reducing unnecessary steps.</p>
-<p>Tools Used
+GitHub Self-Hosted Runners</p>
+<p>Q8. Your pipeline takes 40 minutes to complete. How would you optimize it?</p>
+<p>Answer:
+I would identify bottlenecks by reviewing pipeline execution logs.
+Optimization techniques include parallel job execution, dependency caching, reusable templates, incremental builds, and reducing unnecessary steps.
+Tools Used
 Azure DevOps Pipelines
 GitHub Actions Cache
 Docker Layer Caching
-SonarQube
-Q9. How would you implement Blue-Green Deployment?
-Answer</p>
-<p>I would maintain two identical environments: Blue and Green.</p>
-<p>The new version is deployed to the inactive environment first. After validation, traffic is switched to the new environment with minimal downtime.</p>
-<p>If issues occur, traffic can quickly be routed back to the previous version.</p>
-<p>Tools Used
+SonarQube</p>
+<p>Q9. How would you implement Blue-Green Deployment?</p>
+<p>Answer:
+I would maintain two identical environments: Blue and Green.
+The new version is deployed to the inactive environment first. After validation, traffic is switched to the new environment with minimal downtime.
+If issues occur, traffic can quickly be routed back to the previous version.
+Tools Used
 Azure Application Gateway
 AKS
 Azure Traffic Manager
-Azure DevOps
-Q10. How would you implement Canary Deployment?
-Answer</p>
-<p>In Canary Deployment, a small percentage of traffic is routed to the new version initially.</p>
-<p>The application is monitored closely, and if no issues are detected, traffic is gradually increased until the new version serves all users.</p>
-<p>Tools Used
+Azure DevOps</p>
+<p>Q10. How would you implement Canary Deployment?</p>
+<p>Answer:
+In Canary Deployment, a small percentage of traffic is routed to the new version initially.
+The application is monitored closely, and if no issues are detected, traffic is gradually increased until the new version serves all users.
+Tools Used
 AKS
 Istio
 NGINX Ingress
 Azure Monitor
-Application Insights
-Q11. A Terraform deployment should only run after code review. How would you enforce it?
-Answer</p>
-<p>I would implement Pull Request validation policies.</p>
-<p>Terraform Plan would run automatically during the PR process. The Apply stage would only execute after successful reviews and approvals.</p>
-<p>This prevents unauthorized infrastructure changes.</p>
-<p>Tools Used
+Application Insights</p>
+<p>Q11. A Terraform deployment should only run after code review. How would you enforce it?</p>
+<p>Answer:
+I would implement Pull Request validation policies.
+Terraform Plan would run automatically during the PR process. The Apply stage would only execute after successful reviews and approvals.
+This prevents unauthorized infrastructure changes.
+Tools Used
 GitHub Pull Requests
 Azure Repos
 Branch Policies
-Terraform
-Q12. How do you handle Infrastructure and Application deployments in the same pipeline?
-Answer</p>
-<p>I separate them into stages.</p>
-<p>The first stage provisions infrastructure using Terraform. Once successful, the application deployment stage builds and deploys the application.</p>
-<p>This separation improves maintainability and troubleshooting.</p>
-<p>Tools Used
+Terraform</p>
+<p>Q12. How do you handle Infrastructure and Application deployments in the same pipeline?</p>
+<p>Answer:
+I separate them into stages.
+The first stage provisions infrastructure using Terraform. Once successful, the application deployment stage builds and deploys the application.
+This separation improves maintainability and troubleshooting.
+Tools Used
 Azure DevOps Multi-Stage Pipeline
 GitHub Actions Workflow
 Terraform
-AKS
-Q13. Your AKS deployment succeeded but Pods are failing. What would you check?
-Answer</p>
-<p>I would review deployment logs, Pod logs, events, resource limits, image pull issues, and configuration settings.</p>
-<p>I would also validate Kubernetes manifests and ingress configuration.</p>
-<p>Tools Used
+AKS</p>
+<p>Q13. Your AKS deployment succeeded but Pods are failing. What would you check?</p>
+<p>Answer:
+I would review deployment logs, Pod logs, events, resource limits, image pull issues, and configuration settings.
+I would also validate Kubernetes manifests and ingress configuration.
+Tools Used
 kubectl
 Azure Monitor Container Insights
 AKS
-Helm
-Q14. How do you store reusable pipeline code?
-Answer</p>
-<p>I use YAML templates and reusable workflows.</p>
-<p>This reduces duplication and ensures consistency across multiple projects.</p>
-<p>Tools Used
+Helm</p>
+<p>Q14. How do you store reusable pipeline code?</p>
+<p>Answer:
+I use YAML templates and reusable workflows.
+This reduces duplication and ensures consistency across multiple projects.
+Tools Used
 Azure DevOps YAML Templates
 GitHub Reusable Workflows</p>
-<p>Q15. How would you design an enterprise-grade CI/CD pipeline?
-Answer</p>
-<p>The pipeline would include:</p>
-<p>Source Code Management
+<p>Q15. How would you design an enterprise-grade CI/CD pipeline?</p>
+<p>Answer:
+The pipeline would include:
+Source Code Management
 Build Stage
 Unit Testing
 Security Scanning
@@ -805,9 +805,9 @@ Terraform Plan
 Approval Stage
 Terraform Apply
 Application Deployment
-Monitoring &amp; Validation</p>
-<p>This ensures security, compliance, automation, and reliability.</p>
-<p>Tools Used
+Monitoring &amp; Validation
+This ensures security, compliance, automation, and reliability.
+Tools Used
 GitHub
 Azure DevOps
 Terraform
