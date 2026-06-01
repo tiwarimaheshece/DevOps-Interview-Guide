@@ -24,7 +24,7 @@ Prepare for real-world DevOps interviews with scenario-based questions and detai
 
 <div class="card">
 <h2>Terraform</h2>
-<p>10 Scenario Based Questions</p>
+<p>15 Scenario Based Questions</p>
 <a href="terraform/">Open →</a>
 </div>
 
