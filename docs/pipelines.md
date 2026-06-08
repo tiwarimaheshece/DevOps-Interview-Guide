@@ -199,3 +199,101 @@ AKS
 ACR
 Azure Monitor
 Application Insights
+
+Q11. How do you secure a CI/CD pipeline?
+
+Answer
+
+In my current project, we secure the pipeline at multiple layers because production deployments, infrastructure, and secrets all pass through the pipeline.
+
+The first layer is source code security. We use branch protection, pull request reviews, and approval policies so that nobody can directly push code to the main branch.
+
+During the build stage, we run SonarQube scans to identify code vulnerabilities and quality issues. We also perform dependency scanning because many security risks come from third-party packages.
+
+For Terraform code, we use Checkov. Before infrastructure changes are deployed, Checkov validates security policies such as encryption, public access settings, and NSG configurations.
+
+For secrets, we never store passwords or API keys in repositories. Everything is retrieved from Azure Key Vault during pipeline execution.
+
+Before production deployment, approval gates are mandatory. Even if the pipeline succeeds, deployment cannot proceed without required approvals.
+
+Real Example:
+A developer accidentally committed an API token into a repository. Secret scanning detected it, the PR was blocked automatically, the token was rotated, and the deployment never reached production.
+
+Q12. What security gate tools have you used?
+
+Answer
+
+In my current project, we use multiple security gates across the CI/CD pipeline.
+
+SonarQube for source code security
+Checkov for Terraform security scanning
+Microsoft Defender image scanning for containers
+Azure Key Vault for secret management
+Azure DevOps approval gates and branch policies
+
+The objective is simple: if any critical security issue is detected, the pipeline should stop automatically.
+
+Real Example:
+Checkov once detected that a Terraform deployment was opening RDP port 3389 to the internet. The deployment failed automatically and the issue was fixed before reaching production.
+
+Q13. What vulnerabilities can DAST identify?
+
+Answer
+
+In my current project, DAST is executed after the application is deployed to a test environment. Unlike source code scanning, DAST tests the running application from an external attacker's perspective.
+
+DAST helps identify:
+
+SQL Injection
+Cross-Site Scripting (XSS)
+Authentication issues
+Session management problems
+Broken access control
+Security misconfigurations
+Missing security headers
+Sensitive data exposure
+
+If critical vulnerabilities are detected, the release is blocked from moving to production.
+
+Real Example:
+During a DAST scan, an API endpoint was found to be accessible without authentication. Functional testing had passed, but the security scan identified the issue and the application team fixed it before production release.
+
+Q14. Which vulnerability scanning tools have you used?
+
+Answer
+
+In my current project, we use different tools for different types of vulnerability scanning.
+
+SonarQube for source code scanning
+Checkov for Terraform security scanning
+Microsoft Defender for container vulnerability scanning
+Dependency scanning for third-party libraries
+
+These tools are integrated into Azure DevOps pipelines and act as security gates.
+
+Real Example:
+A Docker image passed all functional tests, but image scanning detected a critical CVE vulnerability. The image was rebuilt with an updated base image and only then deployed to production.
+
+Q15. How do you manage secrets?
+
+Answer
+
+In my current project, all secrets are managed through Azure Key Vault. We never store passwords, API keys, certificates, or connection strings inside repositories, Terraform code, or YAML pipelines.
+
+Pipelines retrieve secrets dynamically from Key Vault using Managed Identities or Service Connections.
+
+Access is controlled through RBAC and least-privilege access policies.
+
+We also enable auditing and regularly rotate critical secrets.
+
+Real Example:
+A database password was mistakenly added to a configuration file during testing. We immediately removed it, rotated the credential, stored it in Key Vault, and modified the application to retrieve it securely at runtime.
+
+Q16. How do you prevent secret leakage?
+
+Answer
+
+In my current project, we don't depend only on developers being careful. We have multiple controls to prevent secret leakage.
+
+Azure Key Vault for secret storage
+Secret sca
